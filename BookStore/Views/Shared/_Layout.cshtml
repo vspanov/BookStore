@@ -5,13 +5,22 @@
     <title>@ViewBag.Title</title>
     <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
 </head>
- 
+
 <body>
-<nav>
-    <ul class="menu">
-        <li>@Html.ActionLink("Главная", "Index", "Home")</li>
-    </ul>
-</nav>
-@RenderBody()
+    <nav>
+        <ul class="menu">
+            <li>@Html.ActionLink("Главная", "Index", "Home")</li>
+        </ul>
+    </nav>
+    @RenderBody()
+    <footer>
+        @if (IsSectionDefined("Footer")) {
+            @RenderSection("Footer")
+        }
+        else 
+        { 
+            <span>Содержание элемента footer по умолчанию.</span>   
+        }
+    </footer>
 </body>
 </html>
